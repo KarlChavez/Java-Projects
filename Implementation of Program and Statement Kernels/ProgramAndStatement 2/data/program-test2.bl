@@ -1,0 +1,50 @@
+PROGRAM UpsideDown IS
+
+  INSTRUCTION Eleven IS
+    IF next-is-friend THEN
+        turnright
+        move
+        infect
+    ELSE
+        turnleft
+        skip
+    END IF
+  END Eleven
+           
+  
+  INSTRUCTION Vecna IS
+    WHILE next-is-enemy DO
+        move
+        move
+        infect
+    END WHILE
+  END Vecna
+  
+  INSTRUCTION MindFlayer IS
+    IF random THEN
+        WHILE next-is-wall DO
+            move
+            move
+            turnleft
+        END WHILE
+    END IF
+  END MindFlayer
+
+BEGIN
+  WHILE true DO
+    MindFlayer
+    IF next-is-enemy THEN
+        Vecna
+        infect
+        move
+        turnleft
+    ELSE
+        IF next-is-friend THEN
+            Eleven
+            move
+            turnright
+            skip
+        END IF
+    END IF
+  END WHILE
+END UpsideDown

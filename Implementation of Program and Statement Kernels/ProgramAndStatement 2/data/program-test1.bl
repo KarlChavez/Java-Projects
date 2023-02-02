@@ -1,0 +1,43 @@
+PROGRAM StrangerThings IS
+
+  INSTRUCTION Stranger IS
+    WHILE true DO
+        IF next-is-empty THEN
+            move
+            skip
+        ELSE
+            IF next-is-enemy THEN
+                turnleft
+                turnright
+                infect
+            END IF
+        END IF
+    END WHILE
+  END Stranger
+           
+  
+  INSTRUCTION Things IS
+    IF random THEN
+        turnright
+    ELSE
+        turnleft
+        skip
+    END IF
+  END Things
+
+BEGIN
+  WHILE true DO
+    IF next-is-friend THEN
+        Stranger
+        turnleft
+        move
+        turnright
+    ELSE
+        IF next-is-wall THEN
+            Things
+            move
+            infect
+        END IF
+    END IF
+  END WHILE
+END StrangerThings

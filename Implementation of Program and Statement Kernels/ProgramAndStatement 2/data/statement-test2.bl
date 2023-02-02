@@ -1,0 +1,43 @@
+infect
+IF next-is-not-friend THEN
+  move
+  turnright
+  turnleft
+  infectt
+  skip
+END IF
+IF true THEN
+    IF next-is-enemy THEN
+        IF next-is-wall THEN
+            move
+        ELSE
+            turnleft
+        END IF
+    END IF
+ELSE
+    WHILE true DO
+        IF next-is-friend THEN
+            IF next-is-enemy THEN
+                IF random THEN
+                    move
+                    infect
+                    skip
+                END IF
+            END IF
+        END IF
+    END WHILE
+END IF
+WHILE next-is-wall DO
+    WHILE true DO
+        IF next-is-empty THEN
+            move
+            skip
+        ELSE
+            IF next-is-enemy THEN
+                turnleft
+                turnright
+                infect
+            END IF
+        END IF
+    END WHILE
+END WHILE
